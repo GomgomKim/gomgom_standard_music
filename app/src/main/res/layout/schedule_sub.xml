@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/whole_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp"
+    android:background="@drawable/edge2"
+    android:paddingTop="15dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/calender"
+        android:orientation="vertical"
+        android:layout_width="75dp"
+        android:layout_height="90dp">
+
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="00"
+            android:fontFamily="@font/notosanskr_medium"
+            android:textSize="26dp"
+            android:includeFontPadding="false"
+            />
+
+        <TextView
+            android:id="@+id/day_of_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Mon"
+            android:fontFamily="@font/notosanskr_light"
+            android:textSize="18dp"
+            android:includeFontPadding="false"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+        <LinearLayout
+            android:id="@+id/text_layout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/what"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="what"
+                android:fontFamily="@font/notosanskr_medium"
+                android:textSize="18dp"
+                android:textColor="#454545"
+                android:maxLines="2"
+                android:includeFontPadding="false"
+                />
+            <TextView
+                android:id="@+id/when"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="when"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="14dp"
+                android:textColor="#454545"
+                android:includeFontPadding="false"
+                />
+            <TextView
+                android:id="@+id/where"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="where"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="14dp"
+                android:textColor="#454545"
+                android:maxLines="2"
+                android:includeFontPadding="false"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:background="#4b555f"
+            >
+            <TextView
+                android:id="@+id/bottom_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="싸인회"
+                android:fontFamily="@font/notosanskr_medium"
+                android:textSize="12dp"
+                android:textColor="#ffffff"
+                android:includeFontPadding="false"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

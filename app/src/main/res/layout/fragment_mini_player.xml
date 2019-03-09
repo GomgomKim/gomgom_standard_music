@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/miniplayer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    tools:context=".tab.MiniPlayerFragment"
+    android:background="#ebebeb"
+    >
+
+    <SeekBar
+        android:id="@+id/musicProgress"
+        android:layout_alignParentTop="true"
+        android:layout_width="350dp"
+        android:layout_height="6dp"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageView
+        android:id="@+id/album_img"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_toRightOf="@+id/album_img"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Artist"
+        android:fontFamily="@font/notosanskr_medium"
+        android:textSize="15dp"
+        android:textColor="#454545"
+        android:maxLines="1"
+        android:ellipsize="end"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_prevplay"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btn_play"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/btn_play"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btn_nextplay"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/btn_nextplay"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@null" />
+
+</RelativeLayout>

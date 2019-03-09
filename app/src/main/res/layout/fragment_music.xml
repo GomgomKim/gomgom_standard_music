@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/whole_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".main.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+        <org.androidtown.soundgram_standard.ui.VerticalViewPager
+            android:id="@+id/musicPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </org.androidtown.soundgram_standard.ui.VerticalViewPager>
+
+        <ImageView
+            android:id="@+id/music_back_img"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="-20dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/play_status"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_width="29dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_layout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:textColor="#f96f6c"
+                android:textSize="25dp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:id="@+id/singer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_light"
+                android:includeFontPadding="false"
+                android:textColor="#454545"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/play_layout"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:layout_above="@+id/control_layout"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <ImageButton
+                android:id="@+id/btn_prevplay"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:background="@null" />
+
+            <ImageButton
+                android:id="@+id/btn_play"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@null" />
+
+            <ImageButton
+                android:id="@+id/btn_nextplay"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:background="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/control_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_above="@+id/musicProgress"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/btn_lyric"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/heart_touch_area"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/heart"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/btn_like_off" />
+
+                <TextView
+                    android:id="@+id/heart_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="0"
+                    android:textColor="#454545"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right">
+
+                <ImageButton
+                    android:id="@+id/btn_repeat"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/play_btn_repeatall" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/musicProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/time_rate"
+            android:layout_centerInParent="true"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:thumb="@drawable/thumb_img"
+            />
+
+        <RelativeLayout
+            android:id="@+id/time_rate"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_above="@+id/bottom_layout"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/currentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/notosanskr_regular"
+                android:text="00:00"
+                android:textColor="#737373"
+                android:textSize="14dp"
+                android:layout_marginLeft="5dp"
+                />
+
+            <TextView
+                android:id="@+id/maxTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/notosanskr_regular"
+                android:text="00:00"
+                android:textColor="#80737373"
+                android:textSize="14dp"
+                android:layout_marginRight="15dp"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

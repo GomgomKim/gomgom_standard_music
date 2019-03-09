@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tab.SnsFragment"
+    android:background="#ffffff"
+    >
+
+    <ImageView
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        />
+
+    <ImageView
+        android:id="@+id/middle_layout1"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:scaleType="fitXY"
+        />
+
+    <ImageView
+        android:id="@+id/middle_layout2"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:scaleType="fitXY"
+        />
+
+    <RelativeLayout
+        android:id="@+id/calender"
+        android:layout_below="@+id/middle_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:layout_marginTop="-150dp"
+        >
+        <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/btn_homepage"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ZICO (지코)"
+                android:fontFamily="@font/notosanskr_regular"
+                android:textSize="22dp"
+                android:textColor="#ffffff"
+                android:includeFontPadding="false"
+                />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="공식홈페이지 "
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:textSize="22dp"
+                    android:textColor="#ffffff"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="바로가기"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="22dp"
+                    android:textColor="#ff7f7c"
+                    android:includeFontPadding="false"
+                    />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_homepage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/sns_homepagego" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/sns_main"
+        android:layout_below="@+id/calender"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingRight="24dp"
+        android:paddingLeft="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="#ffffff"
+        >
+
+        <LinearLayout
+            android:id="@+id/fb_layout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/edge2"
+            android:layout_marginBottom="24dp"
+            >
+            <ImageView
+                android:id="@+id/fb_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="ZICO  "
+                android:fontFamily="@font/notosanskr_medium"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="facebook"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/insta_layout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/edge2"
+            android:layout_marginBottom="24dp"
+            >
+
+            <ImageView
+                android:id="@+id/insta_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="ZICO  "
+                android:fontFamily="@font/notosanskr_medium"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="instagram"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fb_layout2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/edge2"
+            android:layout_marginBottom="24dp"
+            >
+            <ImageView
+                android:id="@+id/fb_img2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="블락비  "
+                android:fontFamily="@font/notosanskr_medium"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="facebook"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/twt_layout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/edge2"
+            android:layout_marginBottom="24dp"
+            >
+            <ImageView
+                android:id="@+id/twt_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="팬시차일드크루  "
+                android:fontFamily="@font/notosanskr_medium"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="twitter"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/insta_layout2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/edge2"
+            android:layout_marginBottom="24dp"
+            >
+            <ImageView
+                android:id="@+id/insta_img2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="팬시차일드크루  "
+                android:fontFamily="@font/notosanskr_medium"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="instagram"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="16dp"
+                android:textColor="#454545"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    >
+
+    <TextView
+        android:id="@+id/video_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="she's a baby"
+        android:textSize="18dp"
+        android:textColor="#454545"
+        android:fontFamily="@font/notosanskr_medium"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/video_layout"
+        android:layout_below="@id/video_title"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:background="@null"
+        >
+        <ImageView
+            android:id="@+id/back_video_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:scaleType="fitXY"
+            />
+        <ImageButton
+            android:id="@+id/btn_video_play"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/video_btn_movieplay"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/video_layout"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/count_title"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="조회수"
+            android:fontFamily="@font/notosanskr_light"
+            android:textSize="14dp"
+            android:layout_marginRight="6dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/bottom_layout"
+            android:layout_toRightOf="@+id/count_title"
+            android:layout_toLeftOf="@+id/like_layout"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            >
+            <TextView
+                android:id="@+id/view_count"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="14dp"
+                />
+
+            <ImageView
+                android:id="@+id/btn_comment"
+                android:layout_toLeftOf="@+id/comment_count"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="6dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:id="@+id/comment_count"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/like_layout"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            >
+            <ImageView
+                android:id="@+id/like_img"
+                android:layout_gravity="center"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="6dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/btn_like_off"
+                />
+            <TextView
+                android:id="@+id/like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

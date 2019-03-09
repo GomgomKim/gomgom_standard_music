@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tab.CoverFragment"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/top_cover_img"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="-125dp"
+        android:scaleType="fitXY"
+        />
+    
+    <ImageView
+        android:id="@+id/bottom_cover_img"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        />
+    
+    <LinearLayout
+        android:id="@+id/copyright"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        >
+        <TextView
+            android:id="@+id/cr_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="2019.03.01"
+            android:fontFamily="@font/notosanskr_light"
+            android:textSize="11dp"
+            android:textColor="#454545"
+            android:includeFontPadding="false"
+            />
+        <TextView
+            android:id="@+id/cr_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center"
+            android:text="세븐시즌스"
+            android:fontFamily="@font/notosanskr_light"
+            android:textSize="11dp"
+            android:textColor="#454545"
+            android:includeFontPadding="false"
+            />
+        <TextView
+            android:id="@+id/cr_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center"
+            android:text="지니뮤직"
+            android:fontFamily="@font/notosanskr_light"
+            android:textSize="11dp"
+            android:textColor="#454545"
+            android:includeFontPadding="false"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

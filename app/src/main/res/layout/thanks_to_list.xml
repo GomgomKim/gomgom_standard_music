@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="20dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp"
+        >
+
+        <ImageView
+            android:id="@+id/profile_img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="#dedede"
+            />
+
+        <TextView
+            android:id="@+id/to_who"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="to"
+            android:fontFamily="@font/notosanskr_medium"
+            android:textSize="17dp"
+            android:textColor="#222222"
+            />
+
+        <TextView
+            android:id="@+id/by_who"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="by"
+            android:fontFamily="@font/notosanskr_light"
+            android:textSize="16dp"
+            android:textColor="#454545"
+            android:textStyle="italic"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/thanks_to_text"
+        android:layout_below="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:fontFamily="@font/notosanskr_regular"
+        android:textSize="15dp"
+        android:textColor="#454545"
+        />
+
+    <ImageButton
+        android:id="@+id/more_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/thanks_to_text"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="-15dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/thanks_btn_more" />
+
+</RelativeLayout>

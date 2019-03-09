@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tab.ScheduleFragment"
+    android:background="#ebebeb"
+    >
+
+    <ImageView
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        />
+    
+    <ImageView
+        android:id="@+id/middle_layout1"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        />
+
+    <ImageView
+        android:id="@+id/middle_layout2"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:scaleType="fitXY"
+        />
+
+    <RelativeLayout
+        android:id="@+id/calender"
+        android:layout_below="@+id/middle_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:layout_marginTop="-150dp"
+        >
+        <ImageButton
+            android:id="@+id/btn_prev"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/schadule_btn_prev"
+            />
+
+        <RelativeLayout
+            android:id="@+id/date_pick"
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dp"
+                android:fontFamily="@font/notosanskr_light"
+                android:text="2019."
+                android:textColor="#ffffff"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingBottom="10dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:text="01"
+                android:textColor="#ffffff"
+                android:textSize="38dp"
+                android:includeFontPadding="false"
+                />
+        </RelativeLayout>
+
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/schadule_btn_next" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/schedule_main"
+        android:layout_below="@+id/calender"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingRight="24dp"
+        android:paddingLeft="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="#ffffff"
+        >
+    </LinearLayout>
+</RelativeLayout>

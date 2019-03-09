@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".tab.BookletFragment"
+    >
+
+
+    <ImageView
+        android:id="@+id/title_img"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="-32dp"
+        android:scaleType="fitXY"
+        />
+
+    <!--<com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
+        android:id="@+id/v_seekbar_w"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_width="30dp"
+        android:layout_height="180dp">
+        <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar
+            android:id="@+id/v_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:splitTrack="false"
+            app:seekBarRotation="CW90"
+            android:max="5"
+            /> &lt;!&ndash; Rotation: CW90 or CW270 &ndash;&gt;
+    </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>-->
+
+    <ListView
+        android:id="@+id/gallary_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+    <ImageView
+        android:id="@+id/bottom_img"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        />
+
+</RelativeLayout>

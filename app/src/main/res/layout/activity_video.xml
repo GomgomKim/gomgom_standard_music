@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".tab.VideoActivity">
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"/>
+
+    <RelativeLayout
+        android:id="@+id/main_layout"
+        android:layout_below="@+id/youtube"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/video_title"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="she's a baby"
+            android:textSize="18dp"
+            android:textColor="#454545"
+            android:fontFamily="@font/notosanskr_medium"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/count_layout"
+            android:layout_below="@id/video_title"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            >
+
+            <TextView
+                android:id="@+id/count_title"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="조회수"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="14dp"
+                android:layout_marginRight="6dp"
+                />
+
+            <RelativeLayout
+                android:id="@+id/bottom_layout"
+                android:layout_toRightOf="@+id/count_title"
+                android:layout_toLeftOf="@+id/like_layout"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                >
+                <TextView
+                    android:id="@+id/view_count"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="14dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/btn_comment"
+                    android:layout_toLeftOf="@+id/comment_count"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="6dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:scaleType="fitXY"
+                    />
+
+                <TextView
+                    android:id="@+id/comment_count"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/like_layout"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="17dp"
+                android:orientation="horizontal"
+                android:paddingLeft="15dp">
+
+                <ImageView
+                    android:id="@+id/like_img"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/btn_like_off"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/like_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/select_layout"
+            android:layout_below="@+id/count_layout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ebebeb"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            >
+            <LinearLayout
+                android:id="@+id/order_by_recent"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:id="@+id/recent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최신순"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="14dp"
+                    android:textColor="#454545"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/order_by_like_count"
+                android:layout_toRightOf="@+id/order_by_recent"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                >
+                <TextView
+                    android:id="@+id/like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="추천순"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="14dp"
+                    android:textColor="#454545"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/write_comment"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/btn_write"
+                    android:layout_width="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="5dp"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="글쓰기"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/comment_list"
+            android:layout_below="@+id/select_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            >
+
+        </ListView>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

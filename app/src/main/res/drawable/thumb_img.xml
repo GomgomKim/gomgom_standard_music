@@ -1,0 +1,10 @@
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/play_page_on">
+        <shape>
+            <size
+                android:height="9dp"
+                android:width="9dp" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="24dp"
+    android:paddingLeft="24dp"
+    android:paddingTop="13dp"
+    android:paddingBottom="13dp"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/profile_img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="#ebebeb"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="14dp"
+        >
+        <LinearLayout
+            android:id="@+id/top_layout"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="user name"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="14dp"
+                android:textColor="#454545"
+                />
+            <TextView
+                android:id="@+id/comment_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:text="1970.01.01"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="14dp"
+                android:textColor="#454545"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/comment_text"
+            android:layout_below="@+id/top_layout"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="comment"
+            android:fontFamily="@font/notosanskr_regular"
+            android:textSize="15dp"
+            android:textColor="#454545"
+            />
+
+        <ImageView
+            android:id="@+id/comment_img"
+            android:layout_below="@+id/comment_text"
+            android:layout_marginTop="15dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:id="@+id/like_layout"
+            android:layout_below="@+id/comment_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/like_count"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="14dp"
+                android:textColor="#454545"
+                />
+
+            <ImageView
+                android:id="@+id/heart_img"
+                android:layout_toLeftOf="@+id/like_count"
+                android:layout_marginRight="6dp"
+                android:layout_centerVertical="true"
+                android:layout_width="16dp"
+                android:layout_height="16dp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
