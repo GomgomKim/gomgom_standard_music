@@ -213,19 +213,27 @@ public class MusicService extends Service {
         customView.setImageViewResource(R.id.img_noti, R.drawable.booklet_img_01);
         customView.setTextViewText(R.id.title_noti, "bermuda");
 
-        Intent leftIntent = new Intent(this, NotificationIntentService.class);
-        leftIntent.setAction("left");
-        customView.setOnClickPendingIntent(R.id.music_prev,
-                PendingIntent.getActivity(this, 0,
-                        leftIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT));
+        // click events
+        Intent prev_intent = new Intent("prev_click");
+        prev_intent.putExtra("id", -1);
+        prev_intent.putExtra("music_index", music_index);
+        prev_intent.putExtra("is_play", mp.isPlaying());
+        PendingIntent prev_p_intent = PendingIntent.getBroadcast(this, -1, prev_intent, 0);
+        customView.setOnClickPendingIntent(R.id.music_prev, prev_p_intent);
 
-        Intent rightIntent = new Intent(this, NotificationIntentService.class);
-        rightIntent.setAction("right");
-        customView.setOnClickPendingIntent(R.id.music_next,
-                PendingIntent.getActivity(this, 0,
-                        rightIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT));
+        Intent next_intent = new Intent("next_click");
+        next_intent.putExtra("id", 1);
+        next_intent.putExtra("music_index", music_index);
+        next_intent.putExtra("is_play", mp.isPlaying());
+        PendingIntent next_p_intent = PendingIntent.getBroadcast(this, 1, next_intent, 0);
+        customView.setOnClickPendingIntent(R.id.music_next, next_p_intent);
+
+        Intent play_intent = new Intent("play_click");
+        play_intent.putExtra("id", 0);
+        play_intent.putExtra("music_index", music_index);
+        play_intent.putExtra("is_play", mp.isPlaying());
+        PendingIntent play_p_intent = PendingIntent.getBroadcast(this, 0, play_intent, 0);
+        customView.setOnClickPendingIntent(R.id.music_now, play_p_intent);
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this)

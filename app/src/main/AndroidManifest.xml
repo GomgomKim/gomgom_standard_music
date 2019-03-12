@@ -35,6 +35,14 @@
             android:name=".service.MusicService"
             android:enabled="true"
             android:exported="true" />
+
+        <receiver android:name=".service.NotificationIntentService">
+            <intent-filter>
+                <action android:name="prev_click"></action>
+                <action android:name="next_click"></action>
+                <action android:name="play_click"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

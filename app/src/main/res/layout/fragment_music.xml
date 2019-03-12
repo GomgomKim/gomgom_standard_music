@@ -14,12 +14,12 @@
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="350dp">
-        <org.androidtown.soundgram_standard.ui.VerticalViewPager
+        <com.example.gomgom_standard_music.ui.VerticalViewPager
             android:id="@+id/musicPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-        </org.androidtown.soundgram_standard.ui.VerticalViewPager>
+        </com.example.gomgom_standard_music.ui.VerticalViewPager>
 
         <ImageView
             android:id="@+id/music_back_img"

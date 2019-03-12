@@ -58,7 +58,7 @@
 
     <fragment
         android:id="@+id/drawer"
-        android:name="org.androidtown.soundgram_standard.adapter.LeftCover"
+        android:name="com.example.gomgom_standard_music.adapter.LeftCover"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start" />
