@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+
         >
 
         <TextView
@@ -40,11 +40,9 @@
             />
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
+
+        <RelativeLayout
             android:id="@+id/text_layout"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -52,6 +50,7 @@
 
             <TextView
                 android:id="@+id/what"
+                android:layout_alignParentTop="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="what"
@@ -63,6 +62,7 @@
                 />
             <TextView
                 android:id="@+id/when"
+                android:layout_below="@+id/what"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="when"
@@ -73,6 +73,7 @@
                 />
             <TextView
                 android:id="@+id/where"
+                android:layout_below="@+id/when"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="where"
@@ -82,32 +83,28 @@
                 android:maxLines="2"
                 android:includeFontPadding="false"
                 />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/bottom_layout"
-            android:orientation="horizontal"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_width="45dp"
-            android:layout_height="20dp"
-            android:background="#4b555f"
-            >
-            <TextView
-                android:id="@+id/bottom_text"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="싸인회"
-                android:fontFamily="@font/notosanskr_medium"
-                android:textSize="12dp"
-                android:textColor="#ffffff"
-                android:includeFontPadding="false"
-                />
-
-        </LinearLayout>
-    </RelativeLayout>
-
+            <LinearLayout
+                android:id="@+id/bottom_layout"
+                android:layout_below="@id/where"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:background="#4b555f"
+                >
+                <TextView
+                    android:id="@+id/bottom_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="싸인회"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="12dp"
+                    android:textColor="#ffffff"
+                    android:includeFontPadding="false"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
 
 
 </LinearLayout>

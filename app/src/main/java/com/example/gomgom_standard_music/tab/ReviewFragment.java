@@ -1,6 +1,7 @@
 package com.example.gomgom_standard_music.tab;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
@@ -95,10 +96,11 @@ public class ReviewFragment extends Fragment {
         SpannableString content = new SpannableString("최신순");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         recent.setText(content);
+        recent.setTypeface(recent.getTypeface(), Typeface.BOLD);
 
         Glide.with(this).load(R.drawable.review_title)
                 .apply(new RequestOptions().fitCenter()).into(top_layout);
-        Glide.with(this).load(R.drawable.booklet_img_01)
+        Glide.with(this).load(R.drawable.booklet_img_04)
                 .apply(new RequestOptions().fitCenter()).into(middle_layout1);
         Glide.with(this).load(R.drawable.bg_gradation)
                 .apply(new RequestOptions().fitCenter()).into(middle_layout2);
@@ -135,6 +137,8 @@ public class ReviewFragment extends Fragment {
             list_state = "최신순";
             SpannableString content = new SpannableString("최신순");
             content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+            recent.setTypeface(recent.getTypeface(), Typeface.BOLD);
+            like.setTypeface(like.getTypeface(), Typeface.NORMAL);
             recent.setText(content);
             like.setText("추천순");
             dataSetting();
@@ -146,6 +150,8 @@ public class ReviewFragment extends Fragment {
             list_state = "추천순";
             SpannableString content = new SpannableString("추천순");
             content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+            recent.setTypeface(recent.getTypeface(), Typeface.NORMAL);
+            like.setTypeface(like.getTypeface(), Typeface.BOLD);
             like.setText(content);
             recent.setText("최신순");
             dataSetting();

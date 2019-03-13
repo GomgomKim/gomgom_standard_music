@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -29,6 +30,7 @@ public class SnsFragment extends Fragment {
     @BindView(R.id.middle_layout1) ImageView middle_layout1;
     @BindView(R.id.middle_layout2) ImageView middle_layout2;
     @BindView(R.id.btn_homepage) ImageButton btn_homepage;
+    @BindView(R.id.sns_scroll) ScrollView sns_scroll;
     @BindView(R.id.sns_main) LinearLayout sns_main;
 
     @BindView(R.id.fb_layout) LinearLayout fb_layout;
@@ -67,6 +69,7 @@ public class SnsFragment extends Fragment {
         Glide.with(getContext()).load(R.drawable.bg_gradation).apply(new RequestOptions().fitCenter()).into(middle_layout2);
         middle_layout2.bringToFront();
         sns_main.bringToFront();
+        sns_scroll.bringToFront();
 
         btn_homepage.setOnClickListener(view -> {
 

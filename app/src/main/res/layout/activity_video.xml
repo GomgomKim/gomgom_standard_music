@@ -8,17 +8,29 @@
     android:background="#ffffff"
     tools:context=".tab.VideoActivity">
 
-    <ImageButton
-        android:id="@+id/btn_close"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/review_btn_arrowbottom"
-        android:layout_alignParentRight="true"
-        />
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#e6f96f6c"
+        >
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/left_btn_close"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            />
+
+    </RelativeLayout>
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/top_layout"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_gravity="center"/>
