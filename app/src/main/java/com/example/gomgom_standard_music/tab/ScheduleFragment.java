@@ -43,6 +43,9 @@ public class ScheduleFragment extends Fragment {
 
     private int current_year, current_month;
 
+    // 스케줄 갯수
+    private int schedule_count=0;
+
     public ScheduleFragment() {
 
     }
@@ -65,7 +68,7 @@ public class ScheduleFragment extends Fragment {
         year.setText(String.valueOf(current_year)+".");
         month.setText(String.valueOf(String.format("%02d",current_month)));
         Glide.with(getContext()).load(R.drawable.schadule_title).apply(new RequestOptions().fitCenter()).into(top_layout);
-        Glide.with(getContext()).load(R.drawable.booklet_img_08).apply(new RequestOptions().fitCenter()).into(middle_layout1);
+        Glide.with(getContext()).load(R.drawable.booklet_img_03).apply(new RequestOptions().fitCenter()).into(middle_layout1);
         Glide.with(getContext()).load(R.drawable.schadule_bg).apply(new RequestOptions().fitCenter()).into(middle_layout2);
         middle_layout2.bringToFront();
         schedule_main.bringToFront();
@@ -79,8 +82,8 @@ public class ScheduleFragment extends Fragment {
         }
 
         btn_prev.setOnClickListener(view -> {
-            if(current_month == 2){
-                Toast.makeText(getContext(), "이전 데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+            if(current_month == 3){
+                Toast.makeText(getContext(), "지나간 달로는 이동할 수 없습니다.", Toast.LENGTH_SHORT).show();
             } else {
                 if(current_month == 1){
                     current_year--;
@@ -93,11 +96,13 @@ public class ScheduleFragment extends Fragment {
                 schedule_main.removeAllViews();
                 adapterSetting();
             }
+
+            showSchedule();
         });
 
         btn_next.setOnClickListener(view -> {
-            if(current_month == 3){
-                Toast.makeText(getContext(), "이후 데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+            if(current_month == 7){
+                Toast.makeText(getContext(), "3달 이후의 스케줄은 확인할 수 없습니다.", Toast.LENGTH_SHORT).show();
             } else{
                 if(current_month == 12){
                     current_year++;
@@ -110,20 +115,28 @@ public class ScheduleFragment extends Fragment {
                 schedule_main.removeAllViews();
                 adapterSetting();
             }
-        });
 
+            showSchedule();
+        });
+    }
+
+    public void showSchedule() {
+        if(schedule_count == 0) schedule_main.setVisibility(View.GONE);
+        else schedule_main.setVisibility(View.VISIBLE);
     }
 
     public void adapterSetting() {
-        createLayout(2019, 02, "13", "Sun", "환경 보호 축제", "2월 13일(일) 18:00", "여의나루 주차장", "방송");
-        createLayout(2019, 02, "21", "Mon", "K2 팬싸인회", "2월 21일(월) 19:00", "영등포 타임스퀘어", "싸인회");
-        createLayout(2019, 03, "26", "Sat", "유희열의 라디오 천국 크러쉬와 동반 출연", "3월 26일(토) 23:00", "KBS FM", "라디오");
+        schedule_count = 0;
+        createLayout(2019, 03, "13", "Sun", "환경 보호 축제", "3월 13일(일) 18:00", "여의나루 주차장", "방송");
+        createLayout(2019, 03, "21", "Mon", "K2 팬싸인회", "3월 21일(월) 19:00", "영등포 타임스퀘어", "싸인회");
+        createLayout(2019, 04, "26", "Sat", "유희열의 라디오 천국 크러쉬와 동반 출연", "4월 26일(토) 23:00", "KBS FM", "라디오");
     }
 
     public void createLayout(int year, int month, String day, String day_of_week, String what, String when, String where, String text){
         Schedule_sub schedule_sub = new Schedule_sub(getContext());
         schedule_sub.setData(year, month, day, day_of_week, what, when, where, text);
         if (current_year == schedule_sub.getYear() && current_month ==schedule_sub.getMonth()){
+            schedule_count++;
             schedule_main.addView(schedule_sub);
         }
 

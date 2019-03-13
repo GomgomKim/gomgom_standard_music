@@ -8,6 +8,14 @@
     android:background="#ffffff"
     tools:context=".tab.VideoActivity">
 
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/review_btn_arrowbottom"
+        android:layout_alignParentRight="true"
+        />
+
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube"
         android:layout_alignParentTop="true"

@@ -31,6 +31,7 @@ import butterknife.ButterKnife;
 
 public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
 
+    @BindView(R.id.btn_close) TextView btn_close;
     @BindView(R.id.video_title) TextView video_title;
 
     @BindView(R.id.view_count) TextView view_count_view;
@@ -183,6 +184,12 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
         };
 
         youTubePlayerView.initialize(API_KEY,this);
+
+        btn_close.setOnClickListener(v -> {
+            finish();
+        });
+
+        btn_close.bringToFront();
 
     }
 

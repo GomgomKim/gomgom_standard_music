@@ -2,7 +2,9 @@ package com.example.gomgom_standard_music.interfaces;
 
 public interface MainInterface {
 
-    public void showMusicPlayer();
+    void showMusicPlayer();
 
-    public void showMiniPlayer();
+    void showMiniPlayer();
+
+    void removeFragment();
 }

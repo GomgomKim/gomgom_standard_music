@@ -9,17 +9,25 @@
     android:background="#ffffff"
     tools:context=".main.MainActivity">
 
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_close_dark"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="350dp">
+
         <com.example.gomgom_standard_music.ui.VerticalViewPager
             android:id="@+id/musicPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-        </com.example.gomgom_standard_music.ui.VerticalViewPager>
+            android:layout_height="match_parent"></com.example.gomgom_standard_music.ui.VerticalViewPager>
 
         <ImageView
             android:id="@+id/music_back_img"
@@ -39,6 +47,54 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
+            <ImageView
+                android:id="@+id/status1"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginBottom="10dp"
+                />
+            <ImageView
+                android:id="@+id/status2"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginBottom="10dp"
+                />
+            <ImageView
+                android:id="@+id/status3"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginBottom="10dp"
+                />
+            <ImageView
+                android:id="@+id/status4"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginBottom="10dp"
+                />
+            <ImageView
+                android:id="@+id/status5"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginBottom="10dp"
+                />
+            <ImageView
+                android:id="@+id/status6"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginBottom="10dp"
+                />
+            <ImageView
+                android:id="@+id/status7"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginBottom="10dp"
+                />
+            <ImageView
+                android:id="@+id/status8"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginBottom="10dp"
+                />
 
         </LinearLayout>
 

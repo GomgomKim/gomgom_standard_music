@@ -22,6 +22,7 @@ import com.example.gomgom_standard_music.events.IsPlayEvent;
 import com.example.gomgom_standard_music.events.SeekbarEvent;
 import com.example.gomgom_standard_music.events.TimerEvent;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -40,12 +41,16 @@ public class MusicService extends Service {
 
     private final IBinder mBinder = new LocalBinder();
 
+    // notification data
+    ArrayList<String> musicarr;
+    ArrayList<Integer> albumarr;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
         mp = changeMusicPlayer(0); //mp 초기화
+        dataSetting();
     }
 
 
@@ -210,8 +215,8 @@ public class MusicService extends Service {
 
     public void setNotification() {
         RemoteViews customView = new RemoteViews(getPackageName(), R.layout.layout_notification);
-        customView.setImageViewResource(R.id.img_noti, R.drawable.booklet_img_01);
-        customView.setTextViewText(R.id.title_noti, "bermuda");
+        customView.setImageViewResource(R.id.img_noti, albumarr.get(music_index));
+        customView.setTextViewText(R.id.title_noti, musicarr.get(music_index));
 
         // click events
         Intent prev_intent = new Intent("prev_click");
@@ -279,6 +284,19 @@ public class MusicService extends Service {
         setNextPlay();
 
         return mp;
+    }
+
+    public void dataSetting(){
+        musicarr = new ArrayList<>();
+        albumarr = new ArrayList<>();
+        musicarr.add("BERMUDA TRIANGLE");  albumarr.add(R.drawable.booklet_img_08);
+        musicarr.add("She's Baby");albumarr.add(R.drawable.booklet_img_01);
+        musicarr.add("Artist");albumarr.add(R.drawable.booklet_img_06);
+        musicarr.add("FANXY CHILD");albumarr.add(R.drawable.booklet_img_08);
+        musicarr.add("천재(Behind the scene)");albumarr.add(R.drawable.booklet_img_04);
+        musicarr.add("Okey Dokey");albumarr.add(R.drawable.booklet_img_05);
+        musicarr.add("나는 나 너는 너");albumarr.add(R.drawable.booklet_img_06);
+        musicarr.add("SoulMate");albumarr.add(R.drawable.booklet_img_01);
     }
 
 }

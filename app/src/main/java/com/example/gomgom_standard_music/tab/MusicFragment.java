@@ -63,6 +63,9 @@ import butterknife.ButterKnife;
 
 public class MusicFragment extends Fragment
 {
+    @BindView(R.id.btn_close) ImageButton btn_close;
+    @BindView(R.id.play_status) LinearLayout play_status;
+
     @BindView(R.id.music_back_img) ImageView music_back_img;
 
     @BindView(R.id.heart_touch_area) LinearLayout heart_touch_area;
@@ -86,6 +89,17 @@ public class MusicFragment extends Fragment
     VerticalViewPager musicPager;
 
     @BindView(R.id.musicProgress) SeekBar seekBar; // 음악 재생위치를 나타내는 시크바
+
+    @BindView(R.id.status1) ImageView status1;
+    @BindView(R.id.status2) ImageView status2;
+    @BindView(R.id.status3) ImageView status3;
+    @BindView(R.id.status4) ImageView status4;
+    @BindView(R.id.status5) ImageView status5;
+    @BindView(R.id.status6) ImageView status6;
+    @BindView(R.id.status7) ImageView status7;
+    @BindView(R.id.status8) ImageView status8;
+
+
 
     final String TAG="MusicFragment";
     RelativeLayout layout;
@@ -147,6 +161,8 @@ public class MusicFragment extends Fragment
         eventBus();
         makeData();
         initSetting();
+//        makeStatus();
+        makeSuppotStatus();
         initPlay();
         musicPagerSetting();
         seekBarSetting();
@@ -186,6 +202,8 @@ public class MusicFragment extends Fragment
             Glide.with(getContext()).load(R.drawable.play_btn_play)
                     .apply(new RequestOptions().fitCenter()).into(btn_play);
         }
+
+        changeStatus();
     }
 
     // 플레이 이벤트
@@ -306,6 +324,77 @@ public class MusicFragment extends Fragment
 
 
         currentTime.setText("00:00");
+
+        btn_close.setOnClickListener(v -> {
+            ((MainInterface)getContext()).removeFragment();
+        });
+        btn_close.bringToFront();
+    }
+
+    public void makeStatus(){
+        for(int i=0; i<musicarr.size(); i++){
+            ImageView status_img = new ImageView(getContext());
+            Glide.with(getContext()).load(R.drawable.play_page_off)
+                    .apply(new RequestOptions().fitCenter()).into(status_img);
+            play_status.addView(status_img);
+        }
+    }
+
+    public void makeSuppotStatus(){
+        Glide.with(getContext()).load(R.drawable.play_page_off)
+                .apply(new RequestOptions().fitCenter()).into(status1);
+        Glide.with(getContext()).load(R.drawable.play_page_off)
+                .apply(new RequestOptions().fitCenter()).into(status2);
+        Glide.with(getContext()).load(R.drawable.play_page_off)
+                .apply(new RequestOptions().fitCenter()).into(status3);
+        Glide.with(getContext()).load(R.drawable.play_page_off)
+                .apply(new RequestOptions().fitCenter()).into(status4);
+        Glide.with(getContext()).load(R.drawable.play_page_off)
+                .apply(new RequestOptions().fitCenter()).into(status5);
+        Glide.with(getContext()).load(R.drawable.play_page_off)
+                .apply(new RequestOptions().fitCenter()).into(status6);
+        Glide.with(getContext()).load(R.drawable.play_page_off)
+                .apply(new RequestOptions().fitCenter()).into(status7);
+        Glide.with(getContext()).load(R.drawable.play_page_off)
+                .apply(new RequestOptions().fitCenter()).into(status8);
+    }
+
+    public void changeStatus(){
+        makeSuppotStatus();
+        switch (index){
+            case 0:
+                Glide.with(getContext()).load(R.drawable.play_page_on)
+                        .apply(new RequestOptions().fitCenter()).into(status1);
+                break;
+            case 1:
+                Glide.with(getContext()).load(R.drawable.play_page_on)
+                        .apply(new RequestOptions().fitCenter()).into(status2);
+                break;
+            case 2:
+                Glide.with(getContext()).load(R.drawable.play_page_on)
+                        .apply(new RequestOptions().fitCenter()).into(status3);
+                break;
+            case 3:
+                Glide.with(getContext()).load(R.drawable.play_page_on)
+                        .apply(new RequestOptions().fitCenter()).into(status4);
+                break;
+            case 4:
+                Glide.with(getContext()).load(R.drawable.play_page_on)
+                        .apply(new RequestOptions().fitCenter()).into(status5);
+                break;
+            case 5:
+                Glide.with(getContext()).load(R.drawable.play_page_on)
+                        .apply(new RequestOptions().fitCenter()).into(status6);
+                break;
+            case 6:
+                Glide.with(getContext()).load(R.drawable.play_page_on)
+                        .apply(new RequestOptions().fitCenter()).into(status7);
+                break;
+            case 7:
+                Glide.with(getContext()).load(R.drawable.play_page_on)
+                        .apply(new RequestOptions().fitCenter()).into(status8);
+                break;
+        }
     }
 
     public void initPlay(){

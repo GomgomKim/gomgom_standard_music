@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
                     .beginTransaction()
                     .replace(R.id.fragment_container, new MusicFragment())
                     .commit();
-            toolbar.bringToFront();
+            toolbar.setVisibility(View.GONE);
             fragment_state = true;
 
             miniplayer_layout.setVisibility(View.GONE);
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
 
         Drawable drawable = getResources().getDrawable(R.drawable.left_mn_side);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 150, 150, true));
+        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 120, 120, true));
         toolbar.setNavigationIcon(newdrawable);
 
         leftCover = (LeftCover) getSupportFragmentManager().findFragmentById(R.id.drawer);
@@ -219,8 +219,8 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
                 .beginTransaction()
                 .replace(R.id.fragment_container, new MusicFragment())
                 .commit();
-        toolbar.bringToFront();
         fragment_state = true;
+        toolbar.setVisibility(View.GONE);
 
         miniplayer_layout.setVisibility(View.GONE);
     }
@@ -229,6 +229,12 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     @Override
     public void showMiniPlayer() {
         miniplayer_layout.setVisibility(View.VISIBLE);
+        toolbar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void removeFragment() {
+        fragmentReset();
     }
 
     public void fragmentReset(){

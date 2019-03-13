@@ -206,10 +206,10 @@ public class MiniPlayerFragment extends Fragment {
         getActivity().startService(intent);
     }
 
-    public void dataSetting(){
+    public void dataSetting() {
         musicarr = new ArrayList<>();
         albumarr = new ArrayList<>();
-        musicarr.add("BERMUDA TRIANGLE");  albumarr.add(R.drawable.booklet_img_08);
+        musicarr.add("BERMUDA TRIANGLE"); albumarr.add(R.drawable.booklet_img_08);
         musicarr.add("She's Baby");albumarr.add(R.drawable.booklet_img_01);
         musicarr.add("Artist");albumarr.add(R.drawable.booklet_img_06);
         musicarr.add("FANXY CHILD");albumarr.add(R.drawable.booklet_img_08);

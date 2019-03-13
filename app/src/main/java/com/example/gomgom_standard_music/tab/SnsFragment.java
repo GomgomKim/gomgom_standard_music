@@ -63,7 +63,7 @@ public class SnsFragment extends Fragment {
 
     public void initSetting(){
         Glide.with(getContext()).load(R.drawable.sns_title).apply(new RequestOptions().fitCenter()).into(top_layout);
-        Glide.with(getContext()).load(R.drawable.booklet_img_01).apply(new RequestOptions().fitCenter()).into(middle_layout1);
+        Glide.with(getContext()).load(R.drawable.booklet_img_02).apply(new RequestOptions().fitCenter()).into(middle_layout1);
         Glide.with(getContext()).load(R.drawable.bg_gradation).apply(new RequestOptions().fitCenter()).into(middle_layout2);
         middle_layout2.bringToFront();
         sns_main.bringToFront();
