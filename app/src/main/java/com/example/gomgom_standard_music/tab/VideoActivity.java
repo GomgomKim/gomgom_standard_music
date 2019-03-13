@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -31,7 +32,7 @@ import butterknife.ButterKnife;
 
 public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
 
-    @BindView(R.id.btn_close) TextView btn_close;
+    @BindView(R.id.btn_close) ImageButton btn_close;
     @BindView(R.id.video_title) TextView video_title;
 
     @BindView(R.id.view_count) TextView view_count_view;
