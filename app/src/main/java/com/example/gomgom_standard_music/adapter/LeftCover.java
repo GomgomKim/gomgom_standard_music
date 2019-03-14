@@ -7,9 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.gomgom_standard_music.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -18,6 +22,7 @@ import butterknife.ButterKnife;
  */
 public class LeftCover extends Fragment {
 
+    @BindView(R.id.profile_img) ImageView profile_img;
     NavigationView layout = null;
 
     public LeftCover() {
@@ -30,7 +35,13 @@ public class LeftCover extends Fragment {
         layout = (NavigationView) inflater.inflate(R.layout.fragment_left_cover, container, false);
         ButterKnife.bind(this, layout);
 
+        profileSetting();
+
         return layout;
+    }
+
+    public void profileSetting(){
+        Glide.with(getContext()).load(R.drawable.profile_sample).apply(new RequestOptions().circleCrop()).into(profile_img);
     }
 
 

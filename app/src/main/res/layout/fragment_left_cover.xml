@@ -42,7 +42,6 @@
                 android:id="@+id/profile_img"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
-                android:background="@drawable/profile_empty"
                 android:layout_centerHorizontal="true"
                 />
             <TextView
@@ -51,7 +50,7 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/profile_img"
                 android:layout_centerHorizontal="true"
-                android:text="member"
+                android:text="홍유정"
                 android:fontFamily="@font/notosanskr_regular"
                 android:textSize="16dp"
                 android:textColor="#ffffff"
