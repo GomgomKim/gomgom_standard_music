@@ -11,6 +11,7 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         startLoading();
+        setGIF();
     }
 
     public void startLoading() {
@@ -20,5 +21,10 @@ public class SplashActivity extends Activity {
             startActivity(intent);
             finish();
         }, 2000);
+    }
+
+    public void setGIF(){
+        /*ImageView loading_gif = (ImageView)findViewById(R.id.loading_gif);
+        Glide.with(this).load().into(loading_gif);*/
     }
 }

@@ -38,7 +38,7 @@ public class CoverFragment extends Fragment {
     }
 
     public void initSetting(){
-        Glide.with(getContext()).load(R.drawable.cover_bg_main).into(top_cover_img);
+        Glide.with(getContext()).load(R.drawable.cover_1).into(top_cover_img);
         Glide.with(getContext()).load(R.drawable.cover_title).into(bottom_cover_img);
     }
 

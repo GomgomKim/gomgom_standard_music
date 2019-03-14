@@ -100,7 +100,7 @@ public class ReviewFragment extends Fragment {
 
         Glide.with(this).load(R.drawable.review_title)
                 .apply(new RequestOptions().fitCenter()).into(top_layout);
-        Glide.with(this).load(R.drawable.booklet_img_04)
+        Glide.with(this).load(R.drawable.booklet_img_01)
                 .apply(new RequestOptions().fitCenter()).into(middle_layout1);
         Glide.with(this).load(R.drawable.bg_gradation)
                 .apply(new RequestOptions().fitCenter()).into(middle_layout2);

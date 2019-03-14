@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
 
         Drawable drawable = getResources().getDrawable(R.drawable.left_mn_side);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 120, 120, true));
+        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 80, 80, true));
         toolbar.setNavigationIcon(newdrawable);
 
         leftCover = (LeftCover) getSupportFragmentManager().findFragmentById(R.id.drawer);
