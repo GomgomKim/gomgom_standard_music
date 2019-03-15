@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".tab.ListFragment"
     >
+    <ImageView
+        android:id="@+id/like_gif"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        />
+
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_width="match_parent"

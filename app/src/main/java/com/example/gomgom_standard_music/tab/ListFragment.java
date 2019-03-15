@@ -3,6 +3,7 @@ package com.example.gomgom_standard_music.tab;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -39,6 +40,7 @@ import butterknife.ButterKnife;
  */
 public class ListFragment extends Fragment {
 
+    @BindView(R.id.like_gif) ImageView like_gif;
     @BindView(R.id.title_bg) ImageView title_bg;
     @BindView(R.id.album_intro) LinearLayout album_intro;
 
@@ -55,6 +57,9 @@ public class ListFragment extends Fragment {
     //팝업
     View popupView;
     PopupWindow pw;
+
+    //like animation
+    private AnimationDrawable frameAnimation;
 
 
     public ListFragment() {
@@ -82,7 +87,7 @@ public class ListFragment extends Fragment {
                 .apply(new RequestOptions().circleCrop())
                 .into(list_profile_img);
 
-        playListAdapter = new PlayListAdapter(getContext());
+        playListAdapter = new PlayListAdapter(getContext(), this);
         for(int i=0; i<titles.size(); i++){
             if ( i == 1 )
                 playListAdapter.addItem(0, i+1, R.drawable.btn_like_on, heart_nums.get(i), titles.get(i), "지코(ZICO)", 1);
@@ -95,6 +100,14 @@ public class ListFragment extends Fragment {
 
     public void albumIntroSetting(){
         album_intro.setOnClickListener(view -> terms_popup_window(view));
+    }
+
+    public void viewGif(){
+        like_gif.setBackgroundResource(R.drawable.like);
+        like_gif.bringToFront();
+        frameAnimation = (AnimationDrawable) like_gif.getBackground();
+        if(frameAnimation.isRunning()) frameAnimation.stop();
+        frameAnimation.start();
     }
 
     public void terms_popup_window(View v){

@@ -1,6 +1,7 @@
 package com.example.gomgom_standard_music.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.example.gomgom_standard_music.R;
 import com.example.gomgom_standard_music.interfaces.MainInterface;
 import com.example.gomgom_standard_music.item.PlayListItem;
 import com.example.gomgom_standard_music.main.MainActivity;
+import com.example.gomgom_standard_music.tab.ListFragment;
 
 import java.util.ArrayList;
 
@@ -29,12 +31,16 @@ public class PlayListAdapter extends BaseAdapter {
     private ImageView title_img;
     private TextView title;
     private TextView singer;
+    private ImageView like_gif;
+    private AnimationDrawable frameAnimation;
     PlayListItem current_item;
     Context context;
+    ListFragment listFragment;
 
-    public PlayListAdapter(Context context){
+    public PlayListAdapter(Context context, ListFragment listfragment){
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;
+        this.listFragment = listfragment;
     }
 
     @Override
@@ -64,6 +70,7 @@ public class PlayListAdapter extends BaseAdapter {
         return 1;
     }
 
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         current_item = getItem(position);
@@ -79,6 +86,7 @@ public class PlayListAdapter extends BaseAdapter {
         title_img = (ImageView) convertView.findViewById(R.id.title_img);
         title = (TextView) convertView.findViewById(R.id.title);
         singer = (TextView) convertView.findViewById(R.id.singer);
+
 
         if(current_item != null){
             index.setText(current_item.getIndex());
@@ -108,6 +116,7 @@ public class PlayListAdapter extends BaseAdapter {
                 if(is_heart == R.drawable.btn_like_off){
                     mItems.get(position).setHeart(R.drawable.btn_like_on);
                     mItems.get(position).setHeart_num(mItems.get(position).getHeart_num()+1);
+                    listFragment.viewGif();
                 } else if (is_heart == R.drawable.btn_like_on) {
                     mItems.get(position).setHeart(R.drawable.btn_like_off);
                     mItems.get(position).setHeart_num(mItems.get(position).getHeart_num()-1);

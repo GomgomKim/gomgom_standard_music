@@ -9,6 +9,15 @@
     android:background="#ffffff"
     tools:context=".main.MainActivity">
 
+    <ImageView
+        android:id="@+id/like_gif"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        />
+
     <ImageButton
         android:id="@+id/btn_close"
         android:layout_width="40dp"
@@ -231,13 +240,16 @@
         <SeekBar
             android:id="@+id/musicProgress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_above="@+id/time_rate"
             android:layout_centerInParent="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:thumb="@drawable/thumb_img"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginLeft="-7dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             />
+
 
         <RelativeLayout
             android:id="@+id/time_rate"
@@ -246,8 +258,7 @@
             android:layout_above="@+id/bottom_layout"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/currentTime"

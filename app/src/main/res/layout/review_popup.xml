@@ -2,25 +2,34 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222222"
-    android:paddingBottom="40dp"
+    android:background="#00000000"
     >
-    <TextView
-        android:id="@+id/review_intro"
+    <RelativeLayout
+        android:layout_marginTop="280dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:layout_height="match_parent"
+        android:paddingBottom="40dp"
+        android:background="#e6000000"
+        >
+        <TextView
+            android:id="@+id/review_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:textSize="15dp"
+            android:textColor="#ffffff"
+            />
 
-        />
-
-    <ImageButton
-        android:id="@+id/top_arrow"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/review_btn_arrowtop"
-        />
+        <ImageButton
+            android:id="@+id/top_arrow"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/review_btn_arrowtop"
+            />
+    </RelativeLayout>
 
 
 </RelativeLayout>

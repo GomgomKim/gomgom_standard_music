@@ -6,8 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -18,6 +22,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -63,6 +68,8 @@ import butterknife.ButterKnife;
 
 public class MusicFragment extends Fragment
 {
+    @BindView(R.id.like_gif) ImageView like_gif;
+
     @BindView(R.id.btn_close) ImageButton btn_close;
     @BindView(R.id.play_status) LinearLayout play_status;
 
@@ -144,6 +151,9 @@ public class MusicFragment extends Fragment
 
     // 자동넘어감
     boolean auto_move = false;
+
+    //하트 애니메이션
+    private AnimationDrawable frameAnimation;
 
 
     public MusicFragment() {
@@ -459,6 +469,25 @@ public class MusicFragment extends Fragment
         // 시크바 색상 변경
         seekBar.getProgressDrawable().setColorFilter(Color.parseColor("#80737373"), PorterDuff.Mode.SRC_IN);
 //        seekBar.getThumb().setColorFilter(737373, PorterDuff.Mode.SRC_IN);
+
+        // thumb 수정
+        seekBar.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                if (seekBar.getHeight() > 0) {
+                    Drawable thumb = getResources().getDrawable(R.drawable.play_page_on);
+                    int h = seekBar.getMeasuredHeight();
+                    int w = h;
+                    Bitmap bmpOrg = ((BitmapDrawable) thumb).getBitmap();
+                    Bitmap bmpScaled = Bitmap.createScaledBitmap(bmpOrg, w, h, true);
+                    Drawable newThumb = new BitmapDrawable(getResources(), bmpScaled);
+                    newThumb.setBounds(0, 0, newThumb.getIntrinsicWidth(), newThumb.getIntrinsicHeight());
+                    seekBar.setThumb(newThumb);
+                    seekBar.getViewTreeObserver().removeOnPreDrawListener(this);
+                }
+                return true;
+            }
+        });
 
         // 시크바 세팅
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -817,44 +846,45 @@ public class MusicFragment extends Fragment
 
     // 하트 눌렀을때
     public void like_music(){
-        heart_touch_area.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if((Integer)heart.getTag() == 0){
-                    heart.setBackgroundResource(R.drawable.btn_like_on);
-                    int current_like_count = like_count.get(index)+1;
-                    setHeartNum(current_like_count);
-                    heart.setTag(1);
-                } else if ((Integer)heart.getTag() == 1){
-                    heart.setBackgroundResource(R.drawable.btn_like_off);
-                    int current_like_count = like_count.get(index)-1;
-                    setHeartNum(current_like_count);
-                    heart.setTag(0);
-                }
+        heart_touch_area.setOnClickListener(view -> {
+            if((Integer)heart.getTag() == 0){
+                heart.setBackgroundResource(R.drawable.btn_like_on);
+                int current_like_count = like_count.get(index)+1;
+                setHeartNum(current_like_count);
+                heart.setTag(1);
+                viewGif();
+            } else if ((Integer)heart.getTag() == 1){
+                heart.setBackgroundResource(R.drawable.btn_like_off);
+                int current_like_count = like_count.get(index)-1;
+                setHeartNum(current_like_count);
+                heart.setTag(0);
             }
         });
     }
 
+    public void viewGif(){
+        like_gif.setBackgroundResource(R.drawable.like);
+        like_gif.bringToFront();
+        frameAnimation = (AnimationDrawable) like_gif.getBackground();
+        if(frameAnimation.isRunning()) frameAnimation.stop();
+        frameAnimation.start();
+    }
+
+
     // <- -> 버튼 눌렀을 때
     public void switch_music(){
         //다음
-        btn_nextplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(index != musicarr.size()-1)
-                    musicPager.setCurrentItem(index+1);
-                else
-                    Toast.makeText(getContext(), "마지막 곡입니다", Toast.LENGTH_SHORT).show();
-            }
+        btn_nextplay.setOnClickListener(view -> {
+            if(index != musicarr.size()-1)
+                musicPager.setCurrentItem(index+1);
+            else
+                Toast.makeText(getContext(), "마지막 곡입니다", Toast.LENGTH_SHORT).show();
         });
 
         //이전
-        btn_prevplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(index !=0)
-                    musicPager.setCurrentItem(index-1);
-            }
+        btn_prevplay.setOnClickListener(view -> {
+            if(index !=0)
+                musicPager.setCurrentItem(index-1);
         });
     }
 

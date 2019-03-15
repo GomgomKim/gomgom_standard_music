@@ -1,17 +1,23 @@
 package com.example.gomgom_standard_music.tab;
 
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,6 +27,10 @@ import com.example.gomgom_standard_music.R;
 import com.example.gomgom_standard_music.adapter.ReviewListAdapter;
 import com.example.gomgom_standard_music.item.ReviewListItem;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -48,6 +58,8 @@ public class ReviewFragment extends Fragment {
     @BindView(R.id.like_img) ImageView like_img;
     @BindView(R.id.like_count) TextView like_count;
 
+    @BindView(R.id.popup_layout) RelativeLayout popup_layout;
+
     @BindView(R.id.order_by_recent) LinearLayout order_by_recent;
     @BindView(R.id.order_by_like_count) LinearLayout order_by_like_count;
     @BindView(R.id.write_comment) LinearLayout write_comment;
@@ -57,6 +69,8 @@ public class ReviewFragment extends Fragment {
 
     @BindView(R.id.recent) TextView recent;
     @BindView(R.id.like) TextView like;
+
+    @BindView(R.id.arrow_btn) ImageButton arrow_btn;
 
     RelativeLayout layout = null;
 
@@ -75,6 +89,10 @@ public class ReviewFragment extends Fragment {
     ArrayList<Integer> like_count_arr;
     ArrayList<Integer> heart_arr;
 
+    // bottom popup
+    View popupView;
+    PopupWindow pw;
+
     public ReviewFragment() {
         // Required empty public constructor
     }
@@ -89,6 +107,7 @@ public class ReviewFragment extends Fragment {
         orderSetting();
         dataSetting(); // DB세팅 후 없어짐
         listSetting();
+        popupSetting();
         return layout;
     }
 
@@ -214,6 +233,52 @@ public class ReviewFragment extends Fragment {
         }
 
         comment_list.setAdapter(reviewListAdapter);
+    }
+
+    public void popupSetting(){
+        arrow_btn.setOnClickListener(v -> {
+            LayoutInflater inf = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            popupView =inf.inflate(R.layout.review_popup,null);
+
+            pw = new PopupWindow(v);
+
+            pw.setContentView(popupView);
+            pw.setWindowLayoutMode(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+            pw.setFocusable(true);
+            pw.showAtLocation(v, Gravity.CENTER, 0, 0);
+
+            pw.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+
+            //popup 내용
+            ImageButton top_arrow = (ImageButton)popupView.findViewById(R.id.top_arrow);
+            TextView review_intro = (TextView)popupView.findViewById(R.id.review_intro);
+
+            // make content
+            AssetManager am = getActivity().getAssets();
+            InputStream inputStream;
+            InputStreamReader inputStreamReader;
+            BufferedReader br;
+            String read=null;
+            String terms="";
+            try {
+                inputStream = am.open("review.txt");
+                inputStreamReader = new InputStreamReader(inputStream,"utf-8");
+                br = new BufferedReader(inputStreamReader);
+
+                while((read=br.readLine())!=null){
+                    terms+=read;
+                    terms+="\n";
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            top_arrow.setOnClickListener(view -> pw.dismiss());
+
+            review_intro.setText(terms);
+
+            pw.showAsDropDown(v);
+        });
     }
 
 }
