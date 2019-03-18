@@ -1,8 +1,5 @@
 package com.example.gomgom_standard_music.service;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -10,9 +7,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-import android.widget.RemoteViews;
 
 import com.example.gomgom_standard_music.R;
 import com.example.gomgom_standard_music.events.DurationEvent;
@@ -96,7 +91,7 @@ public class MusicService extends Service {
 
         switch (state){
             case "play":
-                setNotification();
+//                setNotification();
 
                 mp = changeMusicPlayer(music_index);
                 mp.seekTo(pos);
@@ -213,7 +208,7 @@ public class MusicService extends Service {
         });
     }
 
-    public void setNotification() {
+    /*public void setNotification() {
         RemoteViews customView = new RemoteViews(getPackageName(), R.layout.layout_notification);
         customView.setImageViewResource(R.id.img_noti, albumarr.get(music_index));
         customView.setTextViewText(R.id.title_noti, musicarr.get(music_index));
@@ -249,7 +244,7 @@ public class MusicService extends Service {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(0, notification);
 
-    }
+    }*/
 
 
     public MediaPlayer changeMusicPlayer(int index){
