@@ -37,18 +37,23 @@
             android:layout_height="80dp"
             android:layout_below="@+id/top_layout"
             >
-
-            <ImageView
-                android:id="@+id/profile_img"
+            <RelativeLayout
+                android:id="@+id/profile_click"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
-                android:layout_centerHorizontal="true"
-                />
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:id="@+id/profile_img"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:layout_centerHorizontal="true"
+                    />
+            </RelativeLayout>
             <TextView
                 android:id="@+id/profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_below="@+id/profile_img"
+                android:layout_below="@+id/profile_click"
                 android:layout_centerHorizontal="true"
                 android:text="홍유정"
                 android:fontFamily="@font/notosanskr_regular"

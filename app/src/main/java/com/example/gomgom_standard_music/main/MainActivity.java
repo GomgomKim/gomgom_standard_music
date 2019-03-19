@@ -11,9 +11,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.gomgom_standard_music.R;
 import com.example.gomgom_standard_music.adapter.LeftCover;
@@ -235,6 +237,15 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     @Override
     public void removeFragment() {
         fragmentReset();
+    }
+
+    @Override
+    public void setCoverLayout() {
+        RelativeLayout.LayoutParams topButtonParams = new RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+        );
+        mainPager.setLayoutParams(topButtonParams);
     }
 
     public void fragmentReset(){

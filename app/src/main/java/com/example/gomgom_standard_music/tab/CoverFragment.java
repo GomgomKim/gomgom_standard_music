@@ -3,6 +3,7 @@ package com.example.gomgom_standard_music.tab;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.example.gomgom_standard_music.R;
+import com.example.gomgom_standard_music.interfaces.MainInterface;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +42,19 @@ public class CoverFragment extends Fragment {
     public void initSetting(){
         Glide.with(getContext()).load(R.drawable.cover_1).into(top_cover_img);
         Glide.with(getContext()).load(R.drawable.cover_title).into(bottom_cover_img);
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser){ // 유저가 화면을 보고있을 때
+            if(this.layout != null){
+                ((MainInterface)getContext()).setCoverLayout();
+            }
+            return;
+        }
+        else
+            Log.d("SetUserHint","Cover OFF");
     }
 
 }

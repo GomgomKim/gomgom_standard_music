@@ -7,4 +7,6 @@ public interface MainInterface {
     void showMiniPlayer();
 
     void removeFragment();
+
+    void setCoverLayout();
 }
