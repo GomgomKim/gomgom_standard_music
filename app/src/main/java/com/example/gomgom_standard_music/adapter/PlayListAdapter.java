@@ -1,7 +1,6 @@
 package com.example.gomgom_standard_music.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +30,6 @@ public class PlayListAdapter extends BaseAdapter {
     private ImageView title_img;
     private TextView title;
     private TextView singer;
-    private ImageView like_gif;
-    private AnimationDrawable frameAnimation;
     PlayListItem current_item;
     Context context;
     ListFragment listFragment;
@@ -92,11 +89,7 @@ public class PlayListAdapter extends BaseAdapter {
             index.setText(current_item.getIndex());
             heart.setBackgroundResource(current_item.getHeart());
 
-            if(current_item.getHeart_num()>=1000){
-                heart_num.setText((current_item.getHeart_num()/1000)+"k");
-            } else{
-                heart_num.setText(String.valueOf(current_item.getHeart_num()));
-            }
+            heart_num.setText(setHeartNum(current_item.getHeart_num()));
 
             title.setText(current_item.getTitle());
             singer.setText(current_item.getSinger());
@@ -115,7 +108,7 @@ public class PlayListAdapter extends BaseAdapter {
                 int is_heart = mItems.get(position).getHeart();
                 if(is_heart == R.drawable.btn_like_off){
                     mItems.get(position).setHeart(R.drawable.btn_like_on);
-                    mItems.get(position).setHeart_num(mItems.get(position).getHeart_num()+1);
+                    mItems.get(position).setHeart_num( mItems.get(position).getHeart_num()+1);
                     listFragment.viewGif();
                 } else if (is_heart == R.drawable.btn_like_on) {
                     mItems.get(position).setHeart(R.drawable.btn_like_off);
@@ -151,5 +144,17 @@ public class PlayListAdapter extends BaseAdapter {
 
         mItems.add(mItem);
 
+    }
+
+    public String setHeartNum(int current_like_count){
+        String heart_count = "";
+        if(current_like_count >= 1000) {
+            int thousand = current_like_count/1000;
+            int rest = current_like_count - thousand*1000;
+            if(rest/500 == 1) heart_count = (current_like_count/1000)+".5k";
+            else heart_count = (current_like_count/1000)+"k";
+        }
+        else heart_count = String.valueOf(current_like_count);
+       return heart_count;
     }
 }

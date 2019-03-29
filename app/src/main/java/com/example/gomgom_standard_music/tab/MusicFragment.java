@@ -448,6 +448,7 @@ public class MusicFragment extends Fragment
                 auto_move = false;
                 changePlay();
                 title.setText(musicarr.get(position));
+                setHeartNum(like_count.get(position));
             }
 
             @Override
@@ -891,7 +892,12 @@ public class MusicFragment extends Fragment
     // 하트갯수 수정
     public void setHeartNum(int current_like_count){
         String heart_count = "";
-        if(current_like_count >= 1000)  heart_count = (current_like_count/1000)+"k";
+        if(current_like_count >= 1000) {
+            int thousand = current_like_count/1000;
+            int rest = current_like_count - thousand*1000;
+            if(rest/500 == 1) heart_count = (current_like_count/1000)+".5k";
+            else heart_count = (current_like_count/1000)+"k";
+        }
         else heart_count = String.valueOf(current_like_count);
         like_count.set(index, current_like_count);
         heart_num.setText(heart_count);

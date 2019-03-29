@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ebebeb"
+    >
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#ffffff"
+        >
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/btn_close"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/hello_layout"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="24dp"
+        >
+        <RelativeLayout
+            android:id="@+id/hello_text_layout"
+            android:layout_toLeftOf="@+id/hello_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/hello_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="완전 반가워요!"
+                android:fontFamily="@font/notosanskr_light"
+                android:textSize="28dp"
+                android:textColor="#454545"
+                android:includeFontPadding="false"
+                />
+
+            <LinearLayout
+                android:id="@+id/hello_text2"
+                android:layout_below="@+id/hello_text1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="글등록"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:textColor="#ce4ce4"
+                    android:textSize="12dp"
+                    android:includeFontPadding="false"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="을 위해 계정이 필요합니다."
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:textColor="#454545"
+                    android:textSize="12dp"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/hello_img"
+            android:layout_alignParentRight="true"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_below="@+id/hello_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:layout_marginTop="24dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/kakao_area"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="8dp"
+            >
+            <RelativeLayout
+                android:id="@+id/kakao_img"
+                android:layout_alignParentLeft="true"
+                android:layout_width="53dp"
+                android:layout_height="match_parent"
+                android:background="#ffe800"
+                >
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/member_sns_kakao"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_toRightOf="@+id/kakao_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:paddingLeft="16dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="카카오톡"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="으로 로그인"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/naver_area"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="8dp"
+            >
+            <RelativeLayout
+                android:id="@+id/naver_img"
+                android:layout_alignParentLeft="true"
+                android:layout_width="53dp"
+                android:layout_height="match_parent"
+                android:background="#2cb400"
+                >
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/member_sns_naver"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_toRightOf="@+id/naver_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:paddingLeft="16dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="네이버"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="로 로그인"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/facebook_area"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="8dp"
+            >
+            <RelativeLayout
+                android:id="@+id/facebook_img"
+                android:layout_alignParentLeft="true"
+                android:layout_width="53dp"
+                android:layout_height="match_parent"
+                android:background="#2e4e99"
+                >
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/member_sns_fb"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_toRightOf="@+id/facebook_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:paddingLeft="16dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="페이스북"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="으로 로그인"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/twt_area"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+            <RelativeLayout
+                android:id="@+id/twt_img"
+                android:layout_alignParentLeft="true"
+                android:layout_width="53dp"
+                android:layout_height="match_parent"
+                android:background="#33ccff"
+                >
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/member_sns_twt"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_toRightOf="@+id/twt_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:paddingLeft="16dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="트위터"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="로 로그인"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="15dp"
+                    android:textColor="#454545"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fast_join"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#ce4ce4"
+            >
+            <TextView
+                android:layout_width="126dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="빠른 회원 가입"
+                android:textColor="#ffffff"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_medium"
+                android:textSize="17dp"
+                android:drawableRight="@drawable/ic_write_resize_white"
+                />
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="간편 로그인 및 회원가입 시, 본 서비스의"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="14dp"
+                    android:textColor="#454545"
+                    android:includeFontPadding="false"
+                    />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이용약관 및 개인정보처리방침"
+                        android:fontFamily="@font/notosanskr_light"
+                        android:textSize="14dp"
+                        android:textColor="#ce4ce4"
+                        android:includeFontPadding="false"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="에 따라 정보가"
+                        android:fontFamily="@font/notosanskr_light"
+                        android:textSize="14dp"
+                        android:textColor="#454545"
+                        android:includeFontPadding="false"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="관리됩니다."
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="14dp"
+                    android:textColor="#454545"
+                    android:includeFontPadding="false"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/evaluation_btn"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/pink_border"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+                <TextView
+                    android:layout_width="103dp"
+                    android:layout_height="wrap_content"
+                    android:text="보유 계정으로"
+                    android:textColor="#ce4ec4"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="17dp"
+                    />
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="로그인"
+                    android:textColor="#ce4ec4"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:textSize="17dp"
+                    android:drawableRight="@drawable/ic_login_resize"
+                    />
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
