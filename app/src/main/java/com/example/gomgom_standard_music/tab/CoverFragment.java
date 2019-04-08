@@ -12,7 +12,6 @@ import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.example.gomgom_standard_music.R;
-import com.example.gomgom_standard_music.interfaces.MainInterface;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,7 +48,7 @@ public class CoverFragment extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
         if(isVisibleToUser){ // 유저가 화면을 보고있을 때
             if(this.layout != null){
-                ((MainInterface)getContext()).setCoverLayout();
+
             }
             return;
         }

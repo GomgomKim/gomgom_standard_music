@@ -1,5 +1,8 @@
 package com.example.gomgom_standard_music.service;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -7,7 +10,9 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.RemoteViews;
 
 import com.example.gomgom_standard_music.R;
 import com.example.gomgom_standard_music.events.DurationEvent;
@@ -16,6 +21,8 @@ import com.example.gomgom_standard_music.events.GetSongPlayInfoEvent;
 import com.example.gomgom_standard_music.events.IsPlayEvent;
 import com.example.gomgom_standard_music.events.SeekbarEvent;
 import com.example.gomgom_standard_music.events.TimerEvent;
+import com.example.gomgom_standard_music.interfaces.MusicInterface;
+import com.example.gomgom_standard_music.main.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -23,7 +30,7 @@ import java.util.TimerTask;
 
 
 
-public class MusicService extends Service {
+public class MusicService extends Service implements MusicInterface {
 
     MediaPlayer mp;
     int pos=0;
@@ -40,12 +47,33 @@ public class MusicService extends Service {
     ArrayList<String> musicarr;
     ArrayList<Integer> albumarr;
 
+    int setNoti = 0;
+    int isPlayIntent = 0;
+
+    RemoteViews customView;
+    Intent prev_intent, play_intent, next_intent;
+    PendingIntent prev_p_intent, play_p_intent, next_p_intent, content_intent;
+
+    NotificationCompat.Builder builder;
+    Notification notification;
+    NotificationManager notificationManager;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         mp = changeMusicPlayer(0); //mp 초기화
         dataSetting();
+    }
+
+    @Override
+    public int musicIndex() {
+        return music_index;
+    }
+
+    @Override
+    public boolean isPlaying() {
+        return mp.isPlaying();
     }
 
 
@@ -82,16 +110,20 @@ public class MusicService extends Service {
         }
     }
 
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        music_index = intent.getExtras().getInt("index", 0);
+        if(setNoti == 0){
+            startNotification();
+            setNoti++;
+        }
+
+        music_index = intent.getExtras().getInt("index", music_index);
         String state = intent.getExtras().getString("state");
         int seekBarPosition = intent.getExtras().getInt("seekBar_position", -1);
 
         switch (state){
             case "play":
-//                setNotification();
+                isPlayIntent = 100;
 
                 mp = changeMusicPlayer(music_index);
                 mp.seekTo(pos);
@@ -111,9 +143,13 @@ public class MusicService extends Service {
                 timer_update.schedule(new PageUpdateTimer(), 300, 300);
                 is_timer_on = true;
 
+                setNotification();
+
                 break;
 
             case "stop":
+                isPlayIntent = 0;
+
                 if(mp.isPlaying()){
                     mp.stop(); // 멈춤
                     mp.reset();
@@ -128,9 +164,13 @@ public class MusicService extends Service {
                     timer_update.cancel();
                     is_timer_on = false;
                 }
+
+                setNotification();
                 break;
 
             case "pause":
+                isPlayIntent = 0;
+
                 pos = mp.getCurrentPosition();
                 mp.pause();
                 BusProvider.getInstance().post(new IsPlayEvent(mp.isPlaying()));
@@ -139,6 +179,8 @@ public class MusicService extends Service {
                     timer_update.cancel();
                     is_timer_on = false;
                 }
+
+                setNotification();
                 break;
 
             case "play_mode":
@@ -208,43 +250,43 @@ public class MusicService extends Service {
         });
     }
 
-    /*public void setNotification() {
-        RemoteViews customView = new RemoteViews(getPackageName(), R.layout.layout_notification);
+    public void startNotification(){
+        customView = new RemoteViews(getPackageName(), R.layout.layout_notification);
+        setNotification();
+    }
+
+    public void setNotification() {
         customView.setImageViewResource(R.id.img_noti, albumarr.get(music_index));
+
+        if(mp.isPlaying()) customView.setImageViewResource(R.id.play_img, R.drawable.play_btn_pause);
+        else customView.setImageViewResource(R.id.play_img, R.drawable.play_btn_play);
+
         customView.setTextViewText(R.id.title_noti, musicarr.get(music_index));
 
-        // click events
-        Intent prev_intent = new Intent("prev_click");
-        prev_intent.putExtra("id", -1);
-        prev_intent.putExtra("music_index", music_index);
-        prev_intent.putExtra("is_play", mp.isPlaying());
-        PendingIntent prev_p_intent = PendingIntent.getBroadcast(this, -1, prev_intent, 0);
+        content_intent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0);
+        customView.setOnClickPendingIntent(R.id.noti_layout, content_intent);
+
+        prev_intent = new Intent("prev");
+        prev_p_intent = PendingIntent.getBroadcast(this, 1000+isPlayIntent+music_index, prev_intent, 0);
         customView.setOnClickPendingIntent(R.id.music_prev, prev_p_intent);
 
-        Intent next_intent = new Intent("next_click");
-        next_intent.putExtra("id", 1);
-        next_intent.putExtra("music_index", music_index);
-        next_intent.putExtra("is_play", mp.isPlaying());
-        PendingIntent next_p_intent = PendingIntent.getBroadcast(this, 1, next_intent, 0);
-        customView.setOnClickPendingIntent(R.id.music_next, next_p_intent);
-
-        Intent play_intent = new Intent("play_click");
-        play_intent.putExtra("id", 0);
-        play_intent.putExtra("music_index", music_index);
-        play_intent.putExtra("is_play", mp.isPlaying());
-        PendingIntent play_p_intent = PendingIntent.getBroadcast(this, 0, play_intent, 0);
+        play_intent = new Intent("play");
+        play_p_intent = PendingIntent.getBroadcast(this, 2000+isPlayIntent+music_index, play_intent, 0);
         customView.setOnClickPendingIntent(R.id.music_now, play_p_intent);
 
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.booklet_img_01)
-                        .setCustomContentView(customView);
+        next_intent = new Intent("next");
+        next_p_intent = PendingIntent.getBroadcast(this, 3000+isPlayIntent+music_index, next_intent, 0);
+        customView.setOnClickPendingIntent(R.id.music_next, next_p_intent);
 
-        Notification notification = builder.build();
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notification);
 
-    }*/
+        builder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.booklet_img_01)
+                .setCustomContentView(customView);
+
+        notification = builder.build();
+        notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1, notification);
+    }
 
 
     public MediaPlayer changeMusicPlayer(int index){

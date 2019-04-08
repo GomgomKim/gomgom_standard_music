@@ -18,11 +18,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.gomgom_standard_music.R;
+import com.example.gomgom_standard_music.adapter.BackPressCloseHandler;
 import com.example.gomgom_standard_music.adapter.LeftCover;
 import com.example.gomgom_standard_music.adapter.ViewPagerAdapter;
 import com.example.gomgom_standard_music.events.EndFragEvent;
 import com.example.gomgom_standard_music.interfaces.MainInterface;
 import com.example.gomgom_standard_music.service.BusProvider;
+import com.example.gomgom_standard_music.service.MusicService;
 import com.example.gomgom_standard_music.tab.MiniPlayerFragment;
 import com.example.gomgom_standard_music.tab.MusicFragment;
 import com.example.gomgom_standard_music.tab.ReviewFragment;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     private ActionBarDrawerToggle dtToggle;
     private FrameLayout frameLayout;
     private FrameLayout miniplayer_layout;
+
+    private BackPressCloseHandler backPressCloseHandler;
 
     ViewPager mainPager;
     ViewPagerAdapter viewPagerAdapter;
@@ -55,6 +59,12 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     }
 
     @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -63,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     }
 
     public void initSetting(){
+        backPressCloseHandler = new BackPressCloseHandler(this);
+
         BusProvider.getInstance().register(this);
 
         mainPager=(ViewPager)findViewById(R.id.mainPager);
@@ -289,7 +301,9 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     @Override
     protected void onDestroy() {
         BusProvider.getInstance().unregister(this);
+        Intent intent_service = new Intent(this, MusicService.class);
+        intent_service.putExtra("state", "stop");
+        startService(intent_service);
         super.onDestroy();
     }
 }
-

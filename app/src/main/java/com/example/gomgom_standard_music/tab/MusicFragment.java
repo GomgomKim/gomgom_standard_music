@@ -186,9 +186,9 @@ public class MusicFragment extends Fragment
 
     @Override
     public void onDestroy() {
-        BusProvider.getInstance().post(new EndFragEvent(true));
+        BusProvider.getInstance().post(new EndFragEvent(isPlaying));
         BusProvider.getInstance().unregister(this);
-        ((MainInterface)getContext()).showMiniPlayer();
+//        ((MainInterface)getContext()).showMiniPlayer();
         super.onDestroy();
     }
 
